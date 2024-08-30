@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: my-api-consumo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - GOOGLE_GEMINI_API_KEY=${AIzaSyBV1sb_AfudXiCvhI97Dtqc0F1_S7yGePg"}
+      - MONGO_URI=${mongodb+srv://henriquecordeiro21:leituras123@leituras.fa6tf.mongodb.net/leituras?retryWrites=true&w=majority&appName=leituras}
+    volumes:
+      - .:/usr/src/app
+    command: ["npm", "start"]
